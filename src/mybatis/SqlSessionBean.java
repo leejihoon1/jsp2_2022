@@ -7,7 +7,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class SqlSessionBean {
+public class SqlSessionBean { // 이클래스는 sqlSessionFactory 객체를 리턴하는 메소드가 핵심
 /*
  * Mybatais 라이브러리의 SqlSession 클래스가 SQL 실행메소드를 제공합니다.
  * SqlSesseionFactoryBuilder --> SqlSessionFactory 객체 생성 
