@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import hrd.vo.Member;
 import mybatis.SqlSessionBean;
+import test.vo.User;
 
 public class MemberDao {
 	SqlSessionFactory factory = SqlSessionBean.getSessionFactory();
@@ -59,7 +60,6 @@ public class MemberDao {
 		mapper.close();
 		return result;
 	}
-	
 	//검색 
 	public List<Member> search(String column, String find){
 		SqlSession mapper = factory.openSession();
@@ -73,13 +73,24 @@ public class MemberDao {
 		return result;
 	}
 	
-	
 	//테스트용
 	public List<Member> searchName(String name){
 		SqlSession mapper = factory.openSession();
 		//selectList메소드의 첫번쨰 인자값은 member.xml파일에서 실행할 sql 태그의  id값 
 		// 				    두번째 인자값은 sql 실행에 필요한 파라미터 값.
 		List<Member>result = mapper.selectList("searchName", name);
+		mapper.close();
+		return result;
+	}
+	
+	// 로그인 테스트용으로 다른 테이블의 sql 실행합니다. 
+	public User login(String email, String password) {
+		SqlSession mapper = factory.openSession();
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("email",email);
+		map.put("password",password);
+		
+		User result = mapper.selectOne("login", map);
 		mapper.close();
 		return result;
 	}

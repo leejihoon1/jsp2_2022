@@ -129,7 +129,7 @@
     		}
     	});
     	/* 화면표시 변경 */
-    	const grade = document.getElementById('grade');
+    	const grade = document.getElementById('grade');		
     	const content = document.getElementById('content');
     		if('${column}' == 'grade'){
     			grade.style.display='inline-block';
