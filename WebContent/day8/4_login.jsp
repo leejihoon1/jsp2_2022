@@ -12,7 +12,7 @@
 	if(user==null){ // userid 또는 password가 옳지 않을 때 
 		response.sendRedirect("5_home.jsp?login=n");	//파라미터 처리하는 방법
 	}else{
-	//session 객체에 사용자 정보를 저장
+	//session 객체에 사용자 정보를 저장 : 로그인 완료
 		session.setAttribute("user", user);
 		response.sendRedirect("5_home.jsp?login=y");	//파라미터 처리하는 방법
 	}
